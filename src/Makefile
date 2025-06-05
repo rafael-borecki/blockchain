@@ -14,11 +14,10 @@ $(EXECUTABLE): $(OBJECTS)
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-run:
-	$(./EXECUTABLE)
-
+.PHONY: all clean run
 clean:
 	rm -f $(OBJECTS) $(EXECUTABLE)
 
-.PHONY: all clean
+run: $(EXECUTABLE)
+	./$(EXECUTABLE)
 
