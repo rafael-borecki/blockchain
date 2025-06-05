@@ -19,10 +19,10 @@ void Worker::findNonce(const Block& blockToMine, SharedState& state) const {
     if (HASH_META > current_hash) {
       // found nonce - lock the state to save the nonce
       std::lock_guard<std::mutex> lock(state.resultMutex);
-      
       // double check to see if other thread already found it 
       // while this thread was locking
       if (!state.nonce_found_flag.load()) {
+        //std::cout << base_hash + current_nonce << std::endl;
         state.nonce_found_flag.store(true);
         state.winning_nonce = current_nonce;
         state.winning_worker_id = this->workerId;

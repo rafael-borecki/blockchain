@@ -69,7 +69,7 @@ void Conductor::mining_loop() {
         // nonce found, finalize the block
         if (shared_state_.winning_nonce.has_value()) {
             std::cout << "[Conductor] Block #" << candidate_block.height << " mined by Worker #"
-                      << shared_state_.winning_worker_id.value() << " ---" << std::endl;
+                      << shared_state_.winning_worker_id.value() << std::endl;
             
             candidate_block.setNonce(shared_state_.winning_nonce.value());
             candidate_block.finalizeHash();

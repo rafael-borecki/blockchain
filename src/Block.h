@@ -19,10 +19,11 @@ class Block {
     std::string data;            // actual data - json or whatever
     std::string blockHash;
     std::string nonce;              // h(miner_id) + random
+    std::string fullBlockHash;
 
     // constructor
     Block() 
-      : height(0), timestamp(getTimestamp()), hashMeta(HASH_META), prevBlockHash(GENESIS_HASH), data("GENESIS BLOCK"), blockHash(""), nonce("0")
+      : height(0), timestamp(getTimestamp()), hashMeta(HASH_META), prevBlockHash(GENESIS_HASH), data("GENESIS BLOCK"), blockHash(""), nonce("0"), fullBlockHash("")
     {}
 
     Block(uint32_t height,
@@ -36,7 +37,8 @@ class Block {
       prevBlockHash(std::move(prevBlockHash)),
       data(std::move(data)),
       blockHash(blockStreamHash()),
-      nonce()
+      nonce(),
+      fullBlockHash()
   {}
 
     // To convert a block data into a single stream of concatenated variables.

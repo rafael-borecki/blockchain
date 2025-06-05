@@ -17,7 +17,7 @@ std::string Block::blockStreamHash() const {
 }
 
 void Block::finalizeHash() {
-  this->blockHash = HashUtils::SHA256(this->blockStream() + this->nonce);
+  this->fullBlockHash = HashUtils::SHA256(this->blockStream() + this->nonce);
 }
 
 void Block::setNonce(std::string& found_nonce) {
@@ -33,5 +33,7 @@ void Block::debugBlock() const {
   std::cout<<"data:           " <<  data <<  std::endl;
   std::cout<<"blockHash:      " <<  blockHash <<  std::endl;
   std::cout<<"nonce:          " <<  nonce <<  std::endl;
+  std::cout<<"fullBlockHash:  " <<  fullBlockHash <<  std::endl; //actual hash used to verify the integrity of the blockchain
+                                                                 //since it also contains the nonce
   std::cout<<"---- BLOCK   END ----\n" << std::endl;
 }
