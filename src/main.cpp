@@ -21,6 +21,7 @@ int main(int argc, char* argv[]) {
   uint32_t max_height = std::atoi(argv[2]);
 
   std::vector<Block> blockchain;
+
   // genesis block
   blockchain.push_back(Block());
   blockchain.back().blockHash = blockchain.back().blockStreamHash();

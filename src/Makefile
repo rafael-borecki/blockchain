@@ -4,7 +4,7 @@ LDFLAGS    := -lcrypto
 
 SOURCES    := Time.cpp Block.cpp Worker.cpp HashUtils.cpp main.cpp
 OBJECTS    := $(SOURCES:.cpp=.o)
-EXECUTABLE := main
+EXECUTABLE := blockchain
 
 all: $(EXECUTABLE)
 
@@ -17,7 +17,3 @@ $(EXECUTABLE): $(OBJECTS)
 .PHONY: all clean run
 clean:
 	rm -f $(OBJECTS) $(EXECUTABLE)
-
-run: $(EXECUTABLE)
-	./$(EXECUTABLE)
-
