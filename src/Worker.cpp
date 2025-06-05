@@ -4,30 +4,13 @@
 #include "HashUtils.h"
 #include <string>
 #include <vector>
+#include <mutex>
+#include <thread>
 
-void Worker::addBlock(const Block& b) {
-  blocks.push_back(b);
-}
+#define MAX_HEIGHT 100
 
-Block& Worker::latest() {
-  return blocks.back();
-}
-
-void Worker::debugWorker() {
-  Block current_block = Worker::latest();
-  if(Worker::blocks.size() > 0) {
-    std::cout << "WID: " << workerId << std::endl;
-    current_block.debugBlock();
-  }
-  else {
-    std::cout<< "Worker's blockchain is currently empty.";
-  }
-}
-
-std::string Worker::findNonce() {
-  Block current_block = Worker::latest();
-  std::string hashMeta = current_block.hashMeta;
-  std::string base_hash = current_block.blockStreamHash();
+std::string Worker::findNonce(std::string prev_block_hash) {
+  std::string base_hash = prev_block_hash;
   std::string current_hash = "";
   std::string full_nonce = "";
   std::string workerId = Worker::workerId;
@@ -39,7 +22,8 @@ std::string Worker::findNonce() {
     current_hash = base_hash + full_nonce;
     current_hash = HashUtils::SHA256(current_hash);
 
-    if (hashMeta > current_hash) {
+    if (HASH_META > current_hash) {
+      std::cout << "VALID HASH: "<< current_hash << std::endl;
       return full_nonce; // valid nonce found;
     }
   }
@@ -47,23 +31,30 @@ std::string Worker::findNonce() {
   return full_nonce;
 }
 
-void Worker::mine(std::vector<Block> blockchain) { 
-  for(auto block_id = blockchain.size(); block_id < blockchain.size() + 3 /*TESTING*/; block_id++) {
-    std::string lastHash = blockchain.back().blockHash;
-    data = "BLOCK DATA " + std::to_string(blockchain.size());
-    uint64_t timestamp = getTimestamp();
-    blockchain.push_back(
-        Block(block_id, timestamp, hashMeta, lastHash, data)
-        );
-    // insert new block in the worker's blockchain
-    addBlock(blockchain.back());
+void Worker::mine(std::vector<Block>& blockchain, std::mutex& chainMutex) { 
+  while(blockchain.back().height < MAX_HEIGHT) { 
+    {
+      std::lock_guard<std::mutex> lock(chainMutex);
 
-    //mine the nonce for the new block
-    std::string nonce = findNonce(); 
-    blocks.back().nonce = nonce;
+      std::string prev_block_hash = blockchain.back().blockHash;
+      data = "BLOCK DATA " + std::to_string(blockchain.size()); /*QUEBRADO*/
 
-    // append the blockhash to the block data
-    blocks.back().blockHash = blockchain.back().blockStreamHash();
-    debugWorker();
+      uint64_t timestamp = getTimestamp();
+      blockchain.push_back(
+          Block(blockchain.size(), timestamp, HASH_META, prev_block_hash, data)
+          );
+    }
+
+    std::string prev_block_hash = blockchain.back().prevBlockHash;
+    std::string nonce = findNonce(prev_block_hash);
+
+    {
+      std::lock_guard<std::mutex> lock(chainMutex);
+      
+      std::cout << "Block " << blockchain.size() - 1 << " found by Worker #"<< workerId << std::endl;
+      blockchain.back().nonce = nonce;
+      blockchain.back().blockHash = blockchain.back().blockStreamHash();
+      blockchain.back().debugBlock();
+    }
   }
 }

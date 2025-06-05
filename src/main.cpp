@@ -5,6 +5,9 @@
 #include <iostream>
 #include <vector>
 #include <thread>
+#include <mutex>
+
+#define MAX_WORKERS 10
 
 int main() {
   std::vector<Block> blockchain;
@@ -13,20 +16,29 @@ int main() {
   blockchain.back().blockHash = blockchain.back().blockStreamHash();
   blockchain.back().debugBlock();
 
-  std::vector<Worker> worker;
+  std::mutex chainMutex;
 
-  for(int i = 0; i < 7; i ++) {
-    std::string wid = std::to_string(i);
-    Worker temp_worker(wid);
-    worker.push_back(temp_worker);
+  std::vector<Worker> worker;
+  for (int i = 0; i < MAX_WORKERS; ++i) {
+    worker.emplace_back(std::to_string(i));
   }
 
-  std::thread t1(&Worker::mine, &worker[0], blockchain);
-  std::thread t2(&Worker::mine, &worker[1], blockchain);
-  std::thread t3(&Worker::mine, &worker[2], blockchain);
-  t1.join();
-  t2.join();
-  t3.join();
+  std::vector<std::thread> threads;
+  threads.reserve(worker.size());
+  for (size_t i = 0; i < worker.size(); ++i) {
+    threads.emplace_back(
+        &Worker::mine,
+        &worker[i],
+        std::ref(blockchain),
+        std::ref(chainMutex)
+        );
+  }
+
+  for (auto &t : threads) {
+    if (t.joinable()) {
+      t.join();
+    }
+  }
 
   return 0; 
 };

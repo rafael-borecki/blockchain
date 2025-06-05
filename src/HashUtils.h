@@ -3,7 +3,7 @@
 
 #include <string>
 
-#define HASH_META "000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+#define HASH_META "0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
 
 class HashUtils {
 public:

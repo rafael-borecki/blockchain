@@ -4,28 +4,20 @@
 #include "HashUtils.h"
 #include "Block.h"
 #include <vector>
+#include <mutex>
 
 class Worker : public Block {
   public:
     std::string workerId;
-    std::vector<Block> blocks;
 
     Worker(std::string wid)
       : workerId(std::move(wid))
     {}
 
-    Worker(std::string wid, std::vector<Block> initialBlocks) 
-      : workerId(std::move(wid)),
-      blocks(std::move(initialBlocks)) {}
-
-    void addBlock(const Block& b);
-
-    std::string findNonce();
+    std::string findNonce(std::string last_hash);
 
     Block& latest();
 
-    void debugWorker();
-
-    void mine(std::vector<Block> blocks);
+    void mine(std::vector<Block>& blockchain, std::mutex& chainMutex);
 }; 
 #endif // WORKER_H
