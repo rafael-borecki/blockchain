@@ -40,15 +40,16 @@ class Block {
   {}
 
     // To convert a block data into a single stream of concatenated variables.
-    std::string blockStream();
+    std::string blockStream() const;
 
     // To convert a block data stream into a SHA-256 hash.
-    std::string blockStreamHash();
+    std::string blockStreamHash() const;
 
     void setNonce(std::string& found_nonce);
+    
+    void finalizeHash();
 
-
-    void debugBlock();
+    void debugBlock() const;
 };
 
 #endif // BLOCK_H

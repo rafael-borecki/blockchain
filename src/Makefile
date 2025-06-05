@@ -2,7 +2,7 @@ CXX        := g++
 CXXFLAGS   := -std=c++20 -Wall -Wextra
 LDFLAGS    := -lcrypto
 
-SOURCES    := Time.cpp Block.cpp Worker.cpp HashUtils.cpp main.cpp
+SOURCES    := Time.cpp Block.cpp Worker.cpp HashUtils.cpp DataProducer.cpp Conductor.cpp main.cpp
 OBJECTS    := $(SOURCES:.cpp=.o)
 EXECUTABLE := blockchain
 

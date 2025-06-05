@@ -1,81 +1,35 @@
-// START WORKER.CPP
-
-#include "Time.h"
-#include "Worker.h"
-#include "Block.h"
-#include "HashUtils.h"
 #include <string>
 #include <vector>
 #include <mutex>
 #include <thread>
+#include "Time.h"
+#include "Worker.h"
+#include "Block.h"
+#include "HashUtils.h"
+#include "DataProducer.h"
 
-void Worker::mine(std::vector<Block>& blockchain, std::mutex& chainMutex, int max_height) { 
-  while(true) {
-    Block local_block;
-    std::string prev_block_hash;
-    uint32_t local_height;
+void Worker::findNonce(const Block& blockToMine, SharedState& state) const {
+  std::string base_hash = blockToMine.blockStreamHash();
+  uint64_t nonce_val = 0;
 
-    {
-      std::lock_guard<std::mutex> lock(chainMutex);
-
-      if (blockchain.back().height >= max_height) {
-        break; // found max_height blocks
+  while (!state.nonce_found_flag.load(std::memory_order_relaxed)) {
+    std::string current_nonce = this->workerId + std::to_string(nonce_val);
+    std::string current_hash = HashUtils::SHA256(base_hash + current_nonce);
+    
+    if (HASH_META > current_hash) {
+      // found nonce - lock the state to save the nonce
+      std::lock_guard<std::mutex> lock(state.resultMutex);
+      
+      // double check to see if other thread already found it 
+      // while this thread was locking
+      if (!state.nonce_found_flag.load()) {
+        state.nonce_found_flag.store(true);
+        state.winning_nonce = current_nonce;
+        state.winning_worker_id = this->workerId;
       }
-      prev_block_hash = blockchain.back().blockHash;
-
-      local_height = blockchain.back().height + 1;
+      // exit loop since the nonce was found
+      return;
     }
-
-    std::string data = "BLOCK DATA " + std::to_string(local_height);
-
-    uint64_t timestamp = getTimestamp();
-    local_block = Block(blockchain.size(), timestamp, HASH_META, prev_block_hash, data);
-
-    std::string local_hash = local_block.blockStreamHash();
-    std::string winning_nonce = "";
-    std::string winning_hash  = "";
-
-    uint64_t nonce_val = 0;
-    while (true) { // loop until a block is found or work becomes stale
-      {
-        std::lock_guard<std::mutex> lock(chainMutex);
-        // check if another worker found a block for this height
-        if (blockchain.back().height >= local_height) { 
-          break; // stale condition, break loop to start over
-        }
-      }
-
-      std::string current_nonce = this->workerId + std::to_string(nonce_val);
-      std::string current_hash = HashUtils::SHA256(local_hash + current_nonce);
-
-      if (HASH_META > current_hash) {
-        winning_nonce = current_nonce;
-        break; // found nonce
-      }
-
-      nonce_val++;
-
-      // little sleep
-      if (nonce_val % 10000 == 0) std::this_thread::sleep_for(std::chrono::milliseconds(1));
-    }
-
-    {
-      std::lock_guard<std::mutex> lock(chainMutex);
-
-      if (blockchain.back().height >= max_height) {
-        break;
-      }
-
-      if (blockchain.back().blockHash == local_block.prevBlockHash) {
-        local_block.setNonce(winning_nonce);
-        blockchain.push_back(local_block);
-
-        std::cout << "Block " << local_block.height << " found by Worker #" << this->workerId << std::endl;
-        blockchain.back().debugBlock();
-      } 
-    } // Lock released
+    nonce_val++;
   }
 }
-
-
-// END WORKER.CPP
