@@ -15,6 +15,7 @@ definitions:
     - nonce           h (h(block N-1) + nonce)  < hash meta  
 
 architecture:  
+```
                                                 .---------------------------------.  
           .--> node 1 | nonce validator ---> valid ? append : drop                '  
           '              ^                      ^               '                 '  
@@ -39,3 +40,4 @@ architecture:
                                                 ^               '  
                                                 '               v  
                                                 '---------wait for next nonce  
+```
