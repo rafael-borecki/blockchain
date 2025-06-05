@@ -1,5 +1,6 @@
 Compilar:
-    ```make all```
+    ```make all```  
+
 Executar:
-    ```make run```
-![](./blockchain-uml.png)
+    ```make run <THREADS> <CHAIN HEIGHT>```  
+![](./blockchain-uml.png)  
