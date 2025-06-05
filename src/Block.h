@@ -47,7 +47,6 @@ class Block {
 
     void setNonce(std::string& found_nonce);
 
-    void finalizeHashWithNonce();
 
     void debugBlock();
 };

@@ -1,3 +1,5 @@
+// START TIME.CPP
+
 #include "Time.h"
 #include <iostream>
 #include <chrono>
@@ -12,3 +14,5 @@ uint64_t getTimestamp() {
   uint64_t timestamp = ms;
   return timestamp;
 }
+
+// END TIME.CPP

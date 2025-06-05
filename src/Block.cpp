@@ -1,3 +1,6 @@
+// START BLOCK.CPP
+
+
 #include "Block.h"
 #include "HashUtils.h"
 #include <iostream>
@@ -21,10 +24,6 @@ void Block::setNonce(std::string& found_nonce) {
   this->nonce = found_nonce;
 }
 
-void Block::finalizeHashWithNonce() { 
-  this->blockHash = HashUtils::SHA256(this->blockStream() + this->nonce);
-}
-
 void Block::debugBlock() {
   std::cout<<"---- BLOCK START ----" << std::endl;
   std::cout<<"Height: " << height <<  std::endl;
@@ -36,3 +35,6 @@ void Block::debugBlock() {
   std::cout<<"nonce: " <<  nonce <<  std::endl;
   std::cout<<"---- BLOCK   END ----\n" << std::endl;
 }
+
+
+// END BLOCK.CPP

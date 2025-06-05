@@ -1,3 +1,5 @@
+// START MAIN.CPP
+
 #include "Worker.h"
 #include "HashUtils.h"
 #include "Block.h"
@@ -54,3 +56,6 @@ int main(int argc, char* argv[]) {
 
   return 0; 
 };
+
+
+// END MAIN.CPP

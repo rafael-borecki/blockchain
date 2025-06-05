@@ -1,3 +1,5 @@
+// HASHUTILS.CPP START
+
 #include "HashUtils.h"
 #include <openssl/evp.h>      
 #include <openssl/err.h>
@@ -43,3 +45,6 @@ std::string HashUtils::SHA256(const std::string& input) {
 
     return oss.str();
 }
+
+
+// HASHUTILS.CPP END
