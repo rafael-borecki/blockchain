@@ -3,13 +3,23 @@
 #include "Block.h"
 #include "Time.h"
 #include <iostream>
+#include <cstdint>
+#include <cstdlib>
 #include <vector>
 #include <thread>
 #include <mutex>
 
-#define NUM_WORKERS 8
 
-int main() {
+int main(int argc, char* argv[]) {
+
+  if (argc < 3) {
+    std::cerr << "Usage: " << argv[0] << " <NUM_OF_THREADS> <CHAIN_HEIGHT>\n";
+    return 1;
+  }
+
+  int num_workers = std::atoi(argv[1]);
+  uint32_t max_height = std::atoi(argv[2]);
+
   std::vector<Block> blockchain;
   // genesis block
   blockchain.push_back(Block());
@@ -19,7 +29,7 @@ int main() {
   std::mutex chainMutex;
 
   std::vector<Worker> worker;
-  for (int i = 0; i < NUM_WORKERS; ++i) {
+  for (int i = 0; i < num_workers; ++i) {
     worker.emplace_back(std::to_string(i));
   }
 
@@ -30,7 +40,8 @@ int main() {
         &Worker::mine,
         &worker[i],
         std::ref(blockchain),
-        std::ref(chainMutex)
+        std::ref(chainMutex),
+        max_height
         );
   }
 

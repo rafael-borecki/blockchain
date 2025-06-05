@@ -7,8 +7,6 @@
 #include <mutex>
 #include <thread>
 
-#define MAX_HEIGHT 100
-
 std::string Worker::findNonce(std::string prev_block_hash) {
   std::string base_hash = prev_block_hash;
   std::string current_hash = "";
@@ -31,7 +29,7 @@ std::string Worker::findNonce(std::string prev_block_hash) {
   return full_nonce;
 }
 
-void Worker::mine(std::vector<Block>& blockchain, std::mutex& chainMutex) { 
+void Worker::mine(std::vector<Block>& blockchain, std::mutex& chainMutex, int max_height) { 
   while(true) {
     Block local_block;
     std::string prev_block_hash;
@@ -40,8 +38,8 @@ void Worker::mine(std::vector<Block>& blockchain, std::mutex& chainMutex) {
     {
       std::lock_guard<std::mutex> lock(chainMutex);
 
-      if (blockchain.back().height >= MAX_HEIGHT) {
-        break; // found MAX_HEIGHT blocks
+      if (blockchain.back().height >= max_height) {
+        break; // found max_height blocks
       }
       prev_block_hash = blockchain.back().blockHash;
 
@@ -77,7 +75,7 @@ void Worker::mine(std::vector<Block>& blockchain, std::mutex& chainMutex) {
     {
       std::lock_guard<std::mutex> lock(chainMutex);
 
-      if (blockchain.back().height >= MAX_HEIGHT) {
+      if (blockchain.back().height >= max_height) {
         break;
       }
 

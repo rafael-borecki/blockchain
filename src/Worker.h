@@ -18,6 +18,6 @@ class Worker : public Block {
 
     Block& latest();
 
-    void mine(std::vector<Block>& blockchain, std::mutex& chainMutex);
+    void mine(std::vector<Block>& blockchain, std::mutex& chainMutex, int max_height);
 }; 
 #endif // WORKER_H
