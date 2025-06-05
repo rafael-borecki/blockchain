@@ -45,6 +45,10 @@ class Block {
     // To convert a block data stream into a SHA-256 hash.
     std::string blockStreamHash();
 
+    void setNonce(std::string& found_nonce);
+
+    void finalizeHashWithNonce();
+
     void debugBlock();
 };
 

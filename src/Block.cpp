@@ -17,6 +17,14 @@ std::string Block::blockStreamHash() {
   return HashUtils::SHA256(blockStream());
 }
 
+void Block::setNonce(std::string& found_nonce) {
+  this->nonce = found_nonce;
+}
+
+void Block::finalizeHashWithNonce() { 
+  this->blockHash = HashUtils::SHA256(this->blockStream() + this->nonce);
+}
+
 void Block::debugBlock() {
   std::cout<<"---- BLOCK START ----" << std::endl;
   std::cout<<"Height: " << height <<  std::endl;

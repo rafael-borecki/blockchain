@@ -7,7 +7,7 @@
 #include <thread>
 #include <mutex>
 
-#define MAX_WORKERS 10
+#define NUM_WORKERS 8
 
 int main() {
   std::vector<Block> blockchain;
@@ -19,7 +19,7 @@ int main() {
   std::mutex chainMutex;
 
   std::vector<Worker> worker;
-  for (int i = 0; i < MAX_WORKERS; ++i) {
+  for (int i = 0; i < NUM_WORKERS; ++i) {
     worker.emplace_back(std::to_string(i));
   }
 
