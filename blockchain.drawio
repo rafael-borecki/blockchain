@@ -1,0 +1,328 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36" version="27.1.1">
+  <diagram name="Page-1" id="i99_LlkSj3iajtnBrhJu">
+    <mxGraphModel dx="875" dy="2685" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2000" pageHeight="2000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="4oA00GB-CLxIywaZePXx-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4oA00GB-CLxIywaZePXx-1" target="4oA00GB-CLxIywaZePXx-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="330" y="310" />
+              <mxPoint x="330" y="55" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-60" value="h = HASH(1,2,3,4,5)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="4oA00GB-CLxIywaZePXx-17">
+          <mxGeometry x="-0.7099" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-1" value="&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;BLOCK K:&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;ol&gt;&lt;li&gt;Height K&lt;/li&gt;&lt;li&gt;Data&lt;/li&gt;&lt;li&gt;Timestamp&lt;/li&gt;&lt;li&gt;Hash Difficulty&lt;/li&gt;&lt;li&gt;PrevBlockHash&lt;/li&gt;&lt;li&gt;Nonce (empty)&lt;/li&gt;&lt;li&gt;BlockHash(empty)&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="200" width="190" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="4oA00GB-CLxIywaZePXx-3" target="4oA00GB-CLxIywaZePXx-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-48" value="nonce" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="4oA00GB-CLxIywaZePXx-30">
+          <mxGeometry x="-0.1418" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-3" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;WORKER 1:&amp;nbsp;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;&lt;font style=&quot;&quot;&gt;nonce = (&lt;/font&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;worker_id+nonce_iterator)&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="30" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.502;exitY=0.02;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="4oA00GB-CLxIywaZePXx-29" target="4oA00GB-CLxIywaZePXx-34">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="790" y="-10" as="sourcePoint" />
+            <mxPoint x="640" y="-93" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="800" y="-20" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-50" value="NO" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="4oA00GB-CLxIywaZePXx-49">
+          <mxGeometry x="-0.0432" y="-3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-54" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="4oA00GB-CLxIywaZePXx-29" target="4oA00GB-CLxIywaZePXx-53">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-56" value="YES" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="4oA00GB-CLxIywaZePXx-54">
+          <mxGeometry x="-0.1455" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-29" value="&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;Nonce validator:&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;HASH(h+nonce)&lt;/span&gt;&lt;/div&gt;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;&amp;nbsp;&amp;gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;&amp;nbsp;HASH DIFFICULT?&lt;/font&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;rounded=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="710" y="-7.5" width="180" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="4oA00GB-CLxIywaZePXx-34" target="4oA00GB-CLxIywaZePXx-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-34" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;nonce_iterator + 1&lt;/font&gt;" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="-30" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-118" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="4oA00GB-CLxIywaZePXx-53" target="4oA00GB-CLxIywaZePXx-117">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-53" value="Transmit nonce to other workers" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="25" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-61" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="4oA00GB-CLxIywaZePXx-63" target="4oA00GB-CLxIywaZePXx-68">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-62" value="nonce" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="4oA00GB-CLxIywaZePXx-61">
+          <mxGeometry x="-0.1418" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-63" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;WORKER 2:&amp;nbsp;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;&lt;font style=&quot;&quot;&gt;nonce = (&lt;/font&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;worker_id+nonce_iterator)&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="235" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.502;exitY=0.02;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="4oA00GB-CLxIywaZePXx-68" target="4oA00GB-CLxIywaZePXx-70">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="790" y="192.5" as="sourcePoint" />
+            <mxPoint x="640" y="109.5" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="800" y="182.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-65" value="NO" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="4oA00GB-CLxIywaZePXx-64">
+          <mxGeometry x="-0.0432" y="-3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-66" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="4oA00GB-CLxIywaZePXx-68" target="4oA00GB-CLxIywaZePXx-71">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-67" value="YES" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="4oA00GB-CLxIywaZePXx-66">
+          <mxGeometry x="-0.1455" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-68" value="&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;Nonce validator:&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;HASH(h+nonce)&lt;/span&gt;&lt;/div&gt;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;&amp;nbsp;&amp;gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;&amp;nbsp;HASH DIFFICULT?&lt;/font&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;rounded=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="710" y="195" width="180" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="4oA00GB-CLxIywaZePXx-70" target="4oA00GB-CLxIywaZePXx-63">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-70" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;nonce_iterator + 1&lt;/font&gt;" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="172.5" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-71" value="Transmit nonce to other workers" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="227.5" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-78" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.613;entryY=0.09;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="4oA00GB-CLxIywaZePXx-53" target="4oA00GB-CLxIywaZePXx-68">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="980" y="150" as="sourcePoint" />
+            <mxPoint x="820" y="190" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1060" y="150" />
+              <mxPoint x="820" y="150" />
+              <mxPoint x="820" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-79" value="nonce" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="4oA00GB-CLxIywaZePXx-78">
+          <mxGeometry x="-0.1033" y="-1" relative="1" as="geometry">
+            <mxPoint x="-18" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-102" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="4oA00GB-CLxIywaZePXx-104" target="4oA00GB-CLxIywaZePXx-109">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-103" value="nonce" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="4oA00GB-CLxIywaZePXx-102">
+          <mxGeometry x="-0.1418" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-104" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;WORKER N:&amp;nbsp;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;&lt;font style=&quot;&quot;&gt;nonce = (&lt;/font&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;worker_id+nonce_iterator)&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="435" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-105" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.502;exitY=0.02;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="4oA00GB-CLxIywaZePXx-109" target="4oA00GB-CLxIywaZePXx-111">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="790" y="390" as="sourcePoint" />
+            <mxPoint x="640" y="307" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="800" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-106" value="NO" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="4oA00GB-CLxIywaZePXx-105">
+          <mxGeometry x="-0.0432" y="-3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-107" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="4oA00GB-CLxIywaZePXx-109" target="4oA00GB-CLxIywaZePXx-112">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-108" value="YES" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="4oA00GB-CLxIywaZePXx-107">
+          <mxGeometry x="-0.1455" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-109" value="&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;Nonce validator:&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;HASH(h+nonce)&lt;/span&gt;&lt;/div&gt;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;&amp;nbsp;&amp;gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;&amp;nbsp;HASH DIFFICULT?&lt;/font&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;rounded=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="710" y="392.5" width="180" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-110" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="4oA00GB-CLxIywaZePXx-111" target="4oA00GB-CLxIywaZePXx-104">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-111" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;nonce_iterator + 1&lt;/font&gt;" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="370" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-112" value="Transmit nonce to other workers" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="425" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-115" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.613;entryY=0.09;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1060" y="287.5" as="sourcePoint" />
+            <mxPoint x="820" y="408.5" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1060" y="352.5" />
+              <mxPoint x="820" y="352.5" />
+              <mxPoint x="820" y="382.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-116" value="nonce" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="4oA00GB-CLxIywaZePXx-115">
+          <mxGeometry x="-0.1033" y="-1" relative="1" as="geometry">
+            <mxPoint x="-18" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-122" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4oA00GB-CLxIywaZePXx-117" target="4oA00GB-CLxIywaZePXx-119">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-117" value="Update block K data" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="25" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-129" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.012;entryY=0.575;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="4oA00GB-CLxIywaZePXx-119" target="4oA00GB-CLxIywaZePXx-130">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1779.9999999999995" y="55" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-119" value="&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;BLOCK K:&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;ol&gt;&lt;li&gt;Height K&lt;/li&gt;&lt;li&gt;Data&lt;/li&gt;&lt;li&gt;Timestamp&lt;/li&gt;&lt;li&gt;Hash Difficulty&lt;/li&gt;&lt;li&gt;PrevBlockHash&lt;/li&gt;&lt;li&gt;Nonce = nonce&lt;/li&gt;&lt;li&gt;BlockHash = Hash(1,2,3,4,5,6)&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="-37.5" width="240" height="185" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-125" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="330" y="310" as="sourcePoint" />
+            <mxPoint x="420" y="260" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="330" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-126" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="330" y="460" as="sourcePoint" />
+            <mxPoint x="330" y="310" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-127" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="330" y="460.15" as="sourcePoint" />
+            <mxPoint x="420" y="459.85999999999996" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-130" value="Append block K to worker&#39;s blockchain" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1720" y="20" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-146" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" target="4oA00GB-CLxIywaZePXx-148">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1120" y="257.5" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-147" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4oA00GB-CLxIywaZePXx-148">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1400" y="257.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-148" value="Update block K data" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="227.5" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-149" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.012;entryY=0.575;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="4oA00GB-CLxIywaZePXx-151">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1779.9999999999995" y="257.5" as="targetPoint" />
+            <mxPoint x="1639.9999999999995" y="257.5714285714289" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-151" value="Append block K to worker&#39;s blockchain" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1720" y="222.5" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-158" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" target="4oA00GB-CLxIywaZePXx-160">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1120" y="452.5" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-159" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4oA00GB-CLxIywaZePXx-160">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1400" y="452.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-160" value="Update block K data" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="422.5" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-161" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.012;entryY=0.575;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="4oA00GB-CLxIywaZePXx-163">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1779.9999999999995" y="452.5" as="targetPoint" />
+            <mxPoint x="1639.9999999999995" y="452.5714285714289" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-163" value="Append block K to worker&#39;s blockchain" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1720" y="417.5" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-168" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="4oA00GB-CLxIywaZePXx-130">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="80" y="550" as="sourcePoint" />
+            <mxPoint x="1760" y="630" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="80" y="600" />
+              <mxPoint x="1680" y="600" />
+              <mxPoint x="1920" y="600" />
+              <mxPoint x="1920" y="490" />
+              <mxPoint x="1920" y="50" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-172" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;K + 1&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="4oA00GB-CLxIywaZePXx-168">
+          <mxGeometry x="0.0306" y="-3" relative="1" as="geometry">
+            <mxPoint x="-246" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-169" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1840" y="260" as="sourcePoint" />
+            <mxPoint x="1920" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-170" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1840" y="460" as="sourcePoint" />
+            <mxPoint x="1920" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-173" value="&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;BLOCK K:&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;ol&gt;&lt;li&gt;Height K&lt;/li&gt;&lt;li&gt;Data&lt;/li&gt;&lt;li&gt;Timestamp&lt;/li&gt;&lt;li&gt;Hash Difficulty&lt;/li&gt;&lt;li&gt;PrevBlockHash&lt;/li&gt;&lt;li&gt;Nonce = nonce&lt;/li&gt;&lt;li&gt;BlockHash = Hash(1,2,3,4,5,6)&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="160" width="240" height="185" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-174" value="&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;BLOCK K:&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;ol&gt;&lt;li&gt;Height K&lt;/li&gt;&lt;li&gt;Data&lt;/li&gt;&lt;li&gt;Timestamp&lt;/li&gt;&lt;li&gt;Hash Difficulty&lt;/li&gt;&lt;li&gt;PrevBlockHash&lt;/li&gt;&lt;li&gt;Nonce = nonce&lt;/li&gt;&lt;li&gt;BlockHash = Hash(1,2,3,4,5,6)&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="360" width="240" height="185" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-176" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.371;exitY=1.001;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="4oA00GB-CLxIywaZePXx-1" target="4oA00GB-CLxIywaZePXx-175">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="82" y="381" as="sourcePoint" />
+            <mxPoint x="1840" y="50" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-175" value="Data Source" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="40" y="465" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="4oA00GB-CLxIywaZePXx-180" value="&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;1. Height: profundidade do bloco na blockchain.&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;2. Data: qualquer informação que queria salvar na blockchain.&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;3. Timestamp: tempo atual.&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;4. Hash Difficulty: o objetivo é gerar uma hash aleatoria trocando os nonces até chegar numa hash que seja maior que a Hash Difficulty.&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;5. PrevBlockHash: hash de todo o conteúdo do block anterior.&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;6. Nonce: nonce que validou o bloco atual.&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;7. BlockHash: hash de todo o conteúdo do bloco, incluindo o nonce.&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="-117.5" width="300" height="277.5" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
