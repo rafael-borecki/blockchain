@@ -9,12 +9,13 @@
 
 class Conductor {
 public:
-    Conductor(int num_workers, uint32_t max_height);
+    Conductor(std::string filename, int num_workers, uint32_t max_height);
 
     // public method to start the entire process
     void run();
 
 private:
+    std::string filename_;
     uint32_t max_height_;
     int num_workers_;
 
@@ -25,6 +26,11 @@ private:
     // helper methods to keep the run() method clean
     void init_genesis_block();
     void mining_loop();
+    
+    // methods to save stuff to the bin file
+    // despite being methods of conductor, their definition
+    // is in Filesystem.cpp
+    bool saveBlockchain(std::string filename, Block block);
 };
 
 #endif // CONDUCTOR_H

@@ -13,13 +13,15 @@
 
 int main(int argc, char* argv[]) {
 
-  if (argc < 3) {
-    std::cerr << "Usage: " << argv[0] << " <NUM_OF_THREADS> <CHAIN_HEIGHT>\n";
+  if (argc < 4) {
+    std::cerr << "Usage: " << argv[0] << " <FILENAME> <NUM_OF_THREADS> <CHAIN_HEIGHT>\n";
     return 1;
   }
-
-  int num_workers = std::atoi(argv[1]);
-  uint32_t max_height = std::atoi(argv[2]);
+  
+  std::string filename = argv[1];
+  filename = filename  + ".bin";
+  int num_workers = std::atoi(argv[2]);
+  uint32_t max_height = std::atoi(argv[3]);
 
   if (num_workers <= 0 || max_height <= 0) {
     std::cerr << "Number of threads and chain height must be > 0.\n";
@@ -27,7 +29,7 @@ int main(int argc, char* argv[]) {
   }
 
   // conductor object
-  Conductor conductor(num_workers, max_height);
+  Conductor conductor(filename, num_workers, max_height);
 
   // start
   conductor.run();
