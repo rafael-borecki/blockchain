@@ -6,15 +6,17 @@
 #include "SharedState.h"
 #include <vector>
 #include <string>
+#include <fstream>
+#include <iostream>
 
 class Conductor {
-public:
+  public:
     Conductor(std::string filename, int num_workers, uint32_t max_height);
 
-    // public method to start the entire process
+    // Public method to start the entire process
     void run();
 
-private:
+  private:
     std::string filename_;
     uint32_t max_height_;
     int num_workers_;
@@ -23,14 +25,17 @@ private:
     std::vector<Block> blockchain_;
     std::vector<Worker> workers_;
 
-    // helper methods to keep the run() method clean
+    // Helper methods to keep the run() method clean.
     void init_genesis_block();
     void mining_loop();
-    
-    // methods to save stuff to the bin file
-    // despite being methods of conductor, their definition
+
+    // Methods to load and save stuff to the bin file.
+    // Despite being methods of conductor, their definition
     // is in Filesystem.cpp
+    void loadBlockchain(std::string filename);
     bool saveBlockchain(std::string filename, Block block);
+    void writeHeader(std::fstream& out_file, std::string height, char status);
+    void readBlock(std::stringstream& block_stream);
 };
 
 #endif // CONDUCTOR_H

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <thread>
 #include <string>
+#include <filesystem>
 #include "Conductor.h"
 #include "Time.h"
 #include "DataProducer.h"
@@ -86,7 +87,12 @@ void Conductor::mining_loop() {
 }
 
 void Conductor::run() {
-  init_genesis_block();
+  if (std::filesystem::exists(filename_)){
+    loadBlockchain(filename_);
+  }
+  else {
+    init_genesis_block();
+  }
 
   // launch the data provider thread
   std::thread provider(dataProvider, std::ref(shared_state_), max_height_);

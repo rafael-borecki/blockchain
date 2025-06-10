@@ -21,9 +21,16 @@ class Block {
     std::string nonce;              // h(miner_id) + random
     std::string fullBlockHash;
 
-    // constructor
+    // Default constructor
     Block() 
-      : height(0), timestamp(getTimestamp()), hashMeta(HASH_META), prevBlockHash(GENESIS_HASH), data("GENESIS BLOCK"), blockHash(""), nonce("0"), fullBlockHash("")
+      : height(0), 
+      timestamp(getTimestamp()),
+      hashMeta(HASH_META), 
+      prevBlockHash(GENESIS_HASH), 
+      data(""), 
+      blockHash(""), 
+      nonce("0"), 
+      fullBlockHash("")
     {}
 
     Block(uint32_t height,

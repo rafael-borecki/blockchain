@@ -3,7 +3,7 @@
 
 #include <string>
 
-const std::string HASH_META = "0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
+const std::string HASH_META = "00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 
 class HashUtils {
 public:
