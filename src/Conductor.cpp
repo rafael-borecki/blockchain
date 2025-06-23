@@ -9,7 +9,8 @@
 Conductor::Conductor(std::string filename, int num_workers, uint32_t max_height)
   : filename_(filename),
   max_height_(max_height),
-  num_workers_(num_workers)
+  num_workers_(num_workers),
+  block_producer_("broker:29092", "mined-blocks")
 {
   for (int i = 0; i < num_workers_; ++i) {
     workers_.emplace_back(std::to_string(i));
@@ -80,6 +81,9 @@ void Conductor::mining_loop() {
       blockchain_.push_back(candidate_block);
       blockchain_.back().debugBlock();
       saveBlockchain(filename_, blockchain_.back());
+      std::string payload = candidate_block.serialize();
+      block_producer_.send(payload);
+      std::cout << "[Conductor] Block sent to Kafka topic mined-blocks\n";
     } else {
       std::cerr << "[Conductor] Mining round finished with no nonce found."<< std::endl;
     }
@@ -95,13 +99,20 @@ void Conductor::run() {
   }
 
   // launch the data provider thread
-  std::thread provider(dataProvider, std::ref(shared_state_), max_height_);
+  // std::thread provider(dataProvider, std::ref(shared_state_), max_height_);
+  std::thread consumer_thr(
+   kafkaConsumerToQueueThread,
+   "broker:29092",
+   "blockminer-group-1",
+   "raw-data",
+   std::ref(shared_state_));
 
   // start the mining loop
   mining_loop();
 
   // clean up the provider thread
-  provider.join();
+  consumer_thr.detach();
+  // provider.join();
 
   std::cout << "\n[Conductor] All blocks were mined." << std::endl;
 }

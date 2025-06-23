@@ -8,6 +8,8 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include "KafkaThreads.h"
+#include "KafkaHelpers.h"
 
 class Conductor {
   public:
@@ -24,6 +26,8 @@ class Conductor {
     SharedState shared_state_;
     std::vector<Block> blockchain_;
     std::vector<Worker> workers_;
+
+    KafkaProducer block_producer_;
 
     // Helper methods to keep the run() method clean.
     void init_genesis_block();

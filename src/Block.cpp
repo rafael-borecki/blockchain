@@ -37,3 +37,11 @@ void Block::debugBlock() const {
                                                                  //since it also contains the nonce
   std::cout<<"---- BLOCK   END ----\n" << std::endl;
 }
+
+std::string Block::serialize() const {
+  return std::to_string(height) + "|" +
+        std::to_string(timestamp) + "|" +
+        data + "|" +
+        blockHash + "|" +
+        nonce;
+}

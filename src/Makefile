@@ -1,8 +1,8 @@
 CXX        := g++
 CXXFLAGS   := -std=c++20 -Wall -Wextra
-LDFLAGS    := -lcrypto
+LDFLAGS    := -lcrypto $(shell pkg-config --libs rdkafka++) -pthread
 
-SOURCES    := Time.cpp Block.cpp Worker.cpp HashUtils.cpp DataProducer.cpp Conductor.cpp SaveData.cpp main.cpp
+SOURCES    := Time.cpp Block.cpp Worker.cpp HashUtils.cpp DataProducer.cpp Conductor.cpp SaveData.cpp main.cpp KafkaHelpers.cpp KafkaThreads.cpp
 OBJECTS    := $(SOURCES:.cpp=.o)
 EXECUTABLE := blockchain
 DATA		   := *.bin

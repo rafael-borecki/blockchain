@@ -59,6 +59,9 @@ class Block {
     void finalizeHash();
 
     void debugBlock() const;
+
+    std::string serialize() const;
+
 };
 
 #endif // BLOCK_H

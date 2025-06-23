@@ -9,20 +9,25 @@ Compilar:
 Executar:  
     ```./blockchain <FILENAME> <THREADS> <CHAIN HEIGHT>```  
 
+Executar com Apache Kafka e Docker:
+```bash
+docker compose up --build -d 
+```
+
 ![](./blockchain-uml.png)  
 
 TODO: 
-1. Transformar a HashMeta em uma variável para executar o programa assim:  
+- [ ] Transformar a HashMeta em uma variável para executar o programa assim:  
    ./blockchain <filename> <threads> <height> <difficulty>  
    Sendo difficulty um inteiro representando a quantidade de 0 na Hash Meta.  
-2. Fazer com que não haja possibilidade de o Nonce esgotar  
-3. Salvar o arquivo binário realmente em modo binário  
-4. Conexão com Apache Kafka  
+- [ ] Fazer com que não haja possibilidade de o Nonce esgotar  
+- [ ] Salvar o arquivo binário realmente em modo binário  
+- [x] Conexão com Apache Kafka  
 
 Com muita coragem:  
-5. Uma UI    
-6. P2P   
-7. Merkle Tree  
-8. Mecanismo de recomensa  
+- [ ] Uma UI    
+- [ ] P2P   
+- [ ] Merkle Tree  
+- [ ] Mecanismo de recomensa  
 
       
