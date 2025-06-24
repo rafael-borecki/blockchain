@@ -91,13 +91,6 @@ void Conductor::mining_loop() {
 }
 
 void Conductor::run() {
-  if (std::filesystem::exists(filename_)){
-    loadBlockchain(filename_);
-  }
-  else {
-    init_genesis_block();
-  }
-
   // launch the data provider thread
   // std::thread provider(dataProvider, std::ref(shared_state_), max_height_);
   std::thread consumer_thr(
@@ -106,6 +99,29 @@ void Conductor::run() {
    "blockminer-group-1",
    "raw-data",
    std::ref(shared_state_));
+
+  {
+    std::unique_lock<std::mutex> lk(shared_state_.kafka_mutex);
+    shared_state_.kafka_cv.wait(
+        lk,
+        [&]{ return shared_state_.kafka_ready.load(); }
+    );
+  }
+  std::cout << "[Conductor] Kafka connected.\n";
+
+  bool genesis_was_created = false;
+  if (std::filesystem::exists(filename_)) {
+      loadBlockchain(filename_);
+  } else {
+      init_genesis_block();
+      genesis_was_created = true;
+  }
+
+  if (genesis_was_created) {
+      std::string payload = blockchain_.front().serialize();
+      block_producer_.send(payload);
+      std::cout << "[Conductor] Gênesis sent.\n";
+  }
 
   // start the mining loop
   mining_loop();

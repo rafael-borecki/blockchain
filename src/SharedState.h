@@ -7,6 +7,7 @@
 #include <atomic>
 #include <string>
 #include <optional>
+#include <condition_variable>
 #include "Block.h"
 
 struct SharedState {
@@ -23,6 +24,10 @@ struct SharedState {
     std::mutex resultMutex;
     std::optional<std::string> winning_nonce;
     std::optional<std::string> winning_worker_id;
+
+    std::atomic<bool> kafka_ready{false};
+    std::mutex kafka_mutex;
+    std::condition_variable kafka_cv;
 };
 
 #endif // SHARED_STATE_H

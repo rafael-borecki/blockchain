@@ -39,9 +39,16 @@ void Block::debugBlock() const {
 }
 
 std::string Block::serialize() const {
-  return std::to_string(height) + "|" +
-        std::to_string(timestamp) + "|" +
-        data + "|" +
-        blockHash + "|" +
-        nonce;
+  std::string json = "{";
+  json += "\"height\": " + std::to_string(height) + ",";
+  json += "\"timestamp\": " + std::to_string(timestamp) + ",";
+  json += "\"hashMeta\": \"" + hashMeta + "\",";
+  json += "\"prevBlockHash\": \"" + prevBlockHash + "\",";
+  json += "\"data\": \"" + data + "\",";
+  json += "\"blockHash\": \"" + blockHash + "\",";
+  json += "\"nonce\": \"" + nonce + "\",";
+  json += "\"fullBlockHash\": \"" + fullBlockHash + "\"";
+  json += "}";
+
+  return json;
 }
