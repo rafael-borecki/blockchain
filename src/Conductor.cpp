@@ -79,11 +79,14 @@ void Conductor::mining_loop() {
       candidate_block.setNonce(shared_state_.winning_nonce.value());
       candidate_block.finalizeHash();
       blockchain_.push_back(candidate_block);
-      blockchain_.back().debugBlock();
-      saveBlockchain(filename_, blockchain_.back());
-      std::string payload = candidate_block.serialize();
-      block_producer_.send(payload);
-      std::cout << "[Conductor] Block sent to Kafka topic mined-blocks\n";
+      Block mined_block = blockchain_.back();
+      std::thread([=]() {
+          mined_block.debugBlock();
+          saveBlockchain(filename_, mined_block);
+          block_producer_.send(mined_block.serialize());
+          std::cout << "[Conductor] Block #" << mined_block.height << " persisted and sent.\n";
+      }).detach();
+
     } else {
       std::cerr << "[Conductor] Mining round finished with no nonce found."<< std::endl;
     }
@@ -91,44 +94,52 @@ void Conductor::mining_loop() {
 }
 
 void Conductor::run() {
-  // launch the data provider thread
-  // std::thread provider(dataProvider, std::ref(shared_state_), max_height_);
-  std::thread consumer_thr(
-   kafkaConsumerToQueueThread,
-   "broker:29092",
-   "blockminer-group-1",
-   "raw-data",
-   std::ref(shared_state_));
+  const int num_kafka_consumers = 4; // must match the number of partitions in the topic
+  const std::string brokers = "broker:29092";
+  const std::string group   = "blockminer-group";
+  const std::string topic   = "raw-data";
+
+  std::vector<std::thread> kafka_threads;
+  kafka_threads.reserve(num_kafka_consumers);
+
+  std::atomic<int> ready_count{0};
+
+  for (int i = 0; i < num_kafka_consumers; ++i) {
+    kafka_threads.emplace_back(
+      [&, i] {
+        kafkaConsumerToQueueThread(brokers, group, topic, shared_state_);
+      }
+    );
+  }
 
   {
     std::unique_lock<std::mutex> lk(shared_state_.kafka_mutex);
-    shared_state_.kafka_cv.wait(
-        lk,
-        [&]{ return shared_state_.kafka_ready.load(); }
-    );
+    shared_state_.kafka_cv.wait(lk, [&]{
+      return shared_state_.kafka_ready.load();
+    });
   }
   std::cout << "[Conductor] Kafka connected.\n";
 
+
   bool genesis_was_created = false;
   if (std::filesystem::exists(filename_)) {
-      loadBlockchain(filename_);
+    loadBlockchain(filename_);
   } else {
-      init_genesis_block();
-      genesis_was_created = true;
+    init_genesis_block();
+    genesis_was_created = true;
   }
 
   if (genesis_was_created) {
-      std::string payload = blockchain_.front().serialize();
-      block_producer_.send(payload);
-      std::cout << "[Conductor] Gênesis sent.\n";
+    block_producer_.send(blockchain_.front().serialize());
+    std::cout << "[Conductor] Gênesis sent.\n";
   }
 
-  // start the mining loop
+
   mining_loop();
 
-  // clean up the provider thread
-  consumer_thr.detach();
-  // provider.join();
+  for (auto& t : kafka_threads) {
+    t.detach();
+  }
 
-  std::cout << "\n[Conductor] All blocks were mined." << std::endl;
+  std::cout << "\n[Conductor] All blocks were mined.\n";
 }

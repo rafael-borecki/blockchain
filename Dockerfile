@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
     make \
     libssl-dev \
     librdkafka-dev \
+    nlohmann-json3-dev \
  && rm -rf /var/lib/apt/lists/*
 
 RUN make
@@ -22,6 +23,8 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
+RUN touch output.bin
+
 COPY --from=builder /app/blockchain .
 
 CMD ["bash", "-c", "\
@@ -30,4 +33,4 @@ CMD ["bash", "-c", "\
     sleep 1; \
   done; \
   echo '[miner] Kafka broker is up. Starting blockchain miner...'; \
-  ./blockchain output.bin 4 40"]
+  ./blockchain ./out/output 6 15000"]

@@ -53,3 +53,7 @@ Mkfile.old
 dkms.conf
 
 .vscode
+
+node_modules
+venv
+*.bin

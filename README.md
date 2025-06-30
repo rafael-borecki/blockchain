@@ -15,6 +15,7 @@ docker compose up --build -d
 ```
 
 ![](./blockchain-uml.png)  
+![](./blockchain-architecture.png)  
 
 TODO: 
 - [ ] Transformar a HashMeta em uma variável para executar o programa assim:  

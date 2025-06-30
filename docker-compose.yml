@@ -5,7 +5,8 @@ services:
     ports:
       - "9092:9092"
     healthcheck:
-      test: ["CMD-SHELL", "bash -c 'echo > /dev/tcp/localhost/9092'"]
+      test: ["CMD-SHELL", "bash -c '/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:9092 > /dev/null 2>&1'"]
+      start_period: 15s
       interval: 5s
       timeout: 3s
       retries: 10
@@ -42,9 +43,18 @@ services:
         condition: service_healthy
     entrypoint: ["/bin/bash", "-c"]
     command: >
-      "/opt/kafka/bin/kafka-topics.sh --create --if-not-exists --bootstrap-server broker:29092 --topic raw-data --partitions 1 --replication-factor 1 &&
+      "/opt/kafka/bin/kafka-topics.sh --create --if-not-exists --bootstrap-server broker:29092 --topic raw-data --partitions 4 --replication-factor 1 &&
        /opt/kafka/bin/kafka-topics.sh --create --if-not-exists --bootstrap-server broker:29092 --topic mined-blocks --partitions 1 --replication-factor 1"
 
+  kafka-bomber:
+    image: apache/kafka:latest
+    volumes:
+      - ./spam.sh:/spam.sh
+    entrypoint: ["/bin/bash", "/spam.sh"]
+    depends_on: []
+    restart: "no"
+    deploy:
+      replicas: 0
 
   kafka-ui:
     image: provectuslabs/kafka-ui
@@ -66,8 +76,73 @@ services:
         condition: service_healthy
       topic-init:
         condition: service_completed_successfully
+    volumes:
+      - ./out:/app/out
     networks:
       - default
     stdin_open: true
     tty: true
+    restart: on-failure
+
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+    networks:
+      - default
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z localhost 1883 || exit 1"]
+      start_period: 5s
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+
+  mqtt-kafka-bridge:
+    build:
+      context: ./mqtt-kafka-bridge
+      dockerfile: Dockerfile
+    depends_on:
+      mosquitto:
+        condition: service_healthy
+      broker:
+        condition: service_healthy
+    networks:
+      - default
+    restart: on-failure
+
+  sse-server:
+    build:
+      context: ./interface/back
+      dockerfile: Dockerfile
+    container_name: sse-server
+    depends_on:
+      broker:
+        condition: service_healthy
+      topic-init:
+        condition: service_completed_successfully
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./out:/app/out
+    networks:
+      - default
+    restart: on-failure
+
+  nginx:
+    container_name: nginx
+    build:
+      context: ./interface
+      dockerfile: ./nginx/Dockerfile
+    ports:
+      - "8081:80"
+    networks:
+      - default
+    depends_on:
+      broker:
+        condition: service_healthy
+      topic-init:
+        condition: service_completed_successfully
     restart: on-failure
