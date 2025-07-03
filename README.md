@@ -17,18 +17,4 @@ docker compose up --build -d
 ![](./blockchain-uml.png)  
 ![](./blockchain-architecture.png)  
 
-TODO: 
-- [ ] Transformar a HashMeta em uma variável para executar o programa assim:  
-   ./blockchain <filename> <threads> <height> <difficulty>  
-   Sendo difficulty um inteiro representando a quantidade de 0 na Hash Meta.  
-- [ ] Fazer com que não haja possibilidade de o Nonce esgotar  
-- [ ] Salvar o arquivo binário realmente em modo binário  
-- [x] Conexão com Apache Kafka  
-
-Com muita coragem:  
-- [ ] Uma UI    
-- [ ] P2P   
-- [ ] Merkle Tree  
-- [ ] Mecanismo de recomensa  
-
       

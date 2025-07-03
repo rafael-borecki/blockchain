@@ -3,12 +3,12 @@
 #include <vector>
 #include <cstdint>
 #include <sstream>
-#include <nlohmann/json.hpp>
+//#include <nlohmann/json.hpp>
 #include "Block.h"
 #include "HashUtils.h"
 
 
-using nlohmann::json;
+//using nlohmann::json;
 
 std::string Block::blockStream() const {
   std::ostringstream blockStream;
@@ -43,7 +43,7 @@ void Block::debugBlock() const {
 }
 
 std::string Block::serialize() const {
-  json j;
+//json j;
   j["height"]        = height;
   j["timestamp"]     = timestamp;
   j["hashMeta"]      = hashMeta;
